@@ -10,22 +10,25 @@ class ShowmovieController extends Controller
     //
     public function showmovie()
     {
-        //return the view 
+        //return the view
         $tickets = Ticket::all();
         return view('moviegrid', compact("tickets"));
     }
 
 
     //
-    public function showsinglemovie(Ticket $id)
+    public function showsinglemovie($id)
     {
-        //return the view 
-        
-        //
-        // $tickets = Ticket::all();
+
         $ticket = Ticket::find($id);
-        // dd($oneProduct);
-        // dd($ticket);
+
         return view('moviesingle', compact("ticket"));
+    }
+
+    public function showbooking()
+    {
+
+
+        return view('mo', compact("ticket"));
     }
 }
