@@ -18,7 +18,7 @@ class TicketController extends Controller
         $tickets = Ticket::all();
         return view('admin.tickets.index', compact("tickets"));
     }
-
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -50,10 +50,26 @@ class TicketController extends Controller
      * @param  \App\Models\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
+     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Movie  $movie
+     * @return \Illuminate\Http\Response
+     */
     public function show(Ticket $ticket)
     {
         //
+        $tickets = Ticket::find($ticket->id);
+        // dd($oneProduct);
+        return view('moviegrid', compact('tickets'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Movie  $movie
+     * @return \Illuminate\Http\Response
+     */
 
     /**
      * Show the form for editing the specified resource.

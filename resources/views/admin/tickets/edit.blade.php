@@ -20,46 +20,45 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Edit Ticket</h3></div>
                                     <div class="card-body">
-                                        <form method="post" action="{{route('tickets.update',$ticket->id
-                                            )}}">
+                                        <form method="post" action="{{route('tickets.update',$ticket->id)}}">
                                         @csrf 
                                         @method('PUT')
 
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter room name" name="name"  />
+                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter room name" name="name" value="{{$ticket->name}}" />
                                                         <label for="inputFirstName">Name</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating">
-                                                        <input class="form-control" id="inputLastName" type="number" placeholder="Enter price" name="price"  />
+                                                        <input class="form-control" id="inputLastName" type="number" placeholder="Enter price" name="price"  value="{{$ticket->price}}"/>
                                                         <label for="inputLastName">Price</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="text" placeholder="Enter description" name="description"  />
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="Enter description" name="description"  value="{{$ticket->description}}"/>
                                                 <label for="inputEmail">Description</label>
                                             </div>
                                             <div class="row mb-3">
                                          
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="text" placeholder=" bed type" name="time" />
+                                                        <input class="form-control" id="inputPasswordConfirm" type="text" placeholder=" bed type" name="time" value="{{$ticket->time}}"/>
                                                         <label for="inputPasswordConfirm">Time</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="text" placeholder="services" name="seat" />
+                                                        <input class="form-control" id="inputPasswordConfirm" type="text" placeholder="services" name="seat" value="{{$ticket->seat}}"/>
                                                         <label for="inputPasswordConfirm">Seat</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="text" placeholder="image" name="Image"/>
+                                                        <input class="form-control" id="inputPasswordConfirm" type="text" placeholder="image" name="Image" value="{{$ticket->Image}}"/>
                                                         <label for="inputPasswordConfirm">Image</label>
                                                     </div>
                                                 </div>

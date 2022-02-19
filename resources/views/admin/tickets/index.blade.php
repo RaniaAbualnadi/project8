@@ -141,11 +141,9 @@
                                             <th>Description</th>
                                             <th>Time</th>
                                             <th>Price</th>
-                                            <th>Seat </th>
-                                            <th>services</th>
-                                            
-                                            <th>Edit</th>
+                                            <th>Seat </th>                                            
                                             <th>Image </th>
+                                            <th>Edit</th>
                                             <th>delete</th>
                                         </tr>
                                     </thead>
@@ -158,7 +156,7 @@
                                             <td>{{$ticket->time}}</td>
                                             <td>{{$ticket->price}}</td>
                                             <td>{{$ticket->seat}}</td>
-                                            <td><img src="{{$ticket->Image}}" alt="{{$ticket->name}}"/></td>
+                                            <td ><img class="img-thumbnail col-5" src="{{$ticket->Image}}" alt="{{$ticket->name}}"/></td>
                                             <td><button class="edit"><a href="{{route('tickets.edit',$ticket->id)}}">edit</a></button></td>
                                           
                                             <td>

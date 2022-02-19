@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Showmovie;
+use App\Http\Controllers\showsinglemovie;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserContoller;
 use Illuminate\Support\Facades\Auth;
@@ -19,12 +21,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/movies', function () {
-    return view('moviegrid');
-});
-Route::get('/movie-single', function () {
-    return view('moviesingle');
-});
+// Route::get('/movies', function () {
+//     return view('moviegrid');
+// });
+Route::resource('movies',TicketController::class);
+Route::get('moviegrid',[Showmovie::class,'showmovie']);
+Route::get('moviesingle',[showsinglemovie::class,'showsinglemovie']);
+
 Route::resource('admin/tickets', TicketController::class);
 Route::resource('admin/users', UserContoller::class);
 
