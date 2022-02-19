@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller
 {
@@ -14,11 +15,11 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //return the view 
+        //return the view
         $tickets = Ticket::all();
         return view('admin.tickets.index', compact("tickets"));
     }
-   
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,6 +30,33 @@ class TicketController extends Controller
         //
         return view('admin.tickets.create');
     }
+    public function book(Request $request,Room $room)
+    {
+        if (Auth::check()) {
+        $rooms = DB::table('room_user')->where('room_id', $room->id)->get();
+        $error=false;
+        foreach($rooms as $single){
+            $in=$single->check_in;
+            $out=$single->check_out;
+             if(($request->check_in >= $in && $request->check_in <= $out )  ($request->check_out >= $in && $request->check_out <= $out)  ($request->check_in <= $in && $request->check_out >= $out ) ){
+                 $error=true;
+                 return redirect()->back()->with('message','this date is already booked');
+                 break;
+
+        }}
+        if(!$error){
+             $id=Auth::user()->id;
+            // $room= new Room();
+            $room->users()->attach($id,['check_in'=> $request->check_in,'check_out'=>$request->check_out,'phone'=>$request->phone]);
+            return redirect()->back()->with('success','This Room Booked Successfully');
+        }
+
+        }
+
+        else{
+            return redirect('/login');
+        }}
+
 
     /**
      * Store a newly created resource in storage.
@@ -77,7 +105,7 @@ class TicketController extends Controller
      * @param  \App\Models\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    // return to the  edit view 
+    // return to the  edit view
     public function edit(Ticket $ticket)
     {
         //
@@ -115,5 +143,5 @@ class TicketController extends Controller
     }
 
 
-    
+
 }

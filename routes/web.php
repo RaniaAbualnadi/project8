@@ -35,3 +35,6 @@ Route::resource('admin/users', UserContoller::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/movies/{id}', [TicketController::class, 'book'])->name('movies.book');
+
