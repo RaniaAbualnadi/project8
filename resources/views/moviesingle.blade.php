@@ -175,9 +175,9 @@
                                             class="ion-play"></i></a></div>
                             </div>
                             <div class="btn-transform transform-vertical">
-                                <div><a href="{{route('')}}" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy
+                                <div><a href="{{route('ticketform',$ticket->id)}}" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy
                                         ticket</a></div>
-                                <div><a href="#" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
+                                <div><a href="{{route('ticketform',$ticket->id)}}" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
                             </div>
                         </div>
                     </div>

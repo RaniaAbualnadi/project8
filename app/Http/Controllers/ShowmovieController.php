@@ -25,10 +25,9 @@ class ShowmovieController extends Controller
         return view('moviesingle', compact("ticket"));
     }
 
-    public function showbooking()
+    public function showbooking($id)
     {
-
-
-        return view('mo', compact("ticket"));
+        $ticket = Ticket::find($id);
+        return view('ticketform',compact('ticket'));
     }
 }

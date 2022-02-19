@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::resource('movies',TicketController::class);
 Route::get('moviegrid',[ShowmovieController::class,'showmovie']);
 Route::get('moviesingle/{id}',[ShowmovieController::class,'showsinglemovie'])->name('moviesingle');
+Route::get('ticketform/{id}',[ShowmovieController::class,'showbooking'])->name('ticketform');
 
 
 
