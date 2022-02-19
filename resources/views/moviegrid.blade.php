@@ -270,12 +270,11 @@
 						<div class="movie-item-style-2 movie-item-style-1">
 							<img src="{{$movie->Image}}" alt="">
 							<div class="hvr-inner">
-	            				<a  href="{{ URL::to('moviesingle/' . $movie->id) }}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+	            				<a  href="{{ url('moviesingle/'. $movie->id) }}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
 	            			</div>
 							<div class="mv-item-infor">
 								<h6><a href="#">{{ $movie->name}}</a></h6>
-                                <a class="btn btn-small btn-success" href="{{ URL::to('moviesingle/' . $movie->id) }}">Show movie</a>
-                                <a class="btn btn-small btn-info" href="{{ URL::to('movies/' . $movie->id . '/edit') }}">Edit movie</a>
+                                <a class="btn btn-small btn-success" href="{{ URL::to('moviesingle' . $movie->id) }}">Show movie</a>
 								<p class="rate"><i class="ion-android-star"></i><span>8.1</span> /10</p>
 							</div>
 						</div>	

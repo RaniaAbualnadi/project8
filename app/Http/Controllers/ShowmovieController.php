@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
-class Showmovie extends Controller
+class ShowmovieController extends Controller
 {
     //
     public function showmovie()
@@ -14,16 +14,18 @@ class Showmovie extends Controller
         $tickets = Ticket::all();
         return view('moviegrid', compact("tickets"));
     }
-}
-class showsinglemovie extends Controller
-{
+
+
     //
-    public function showsinglemovie(Ticket $ticket)
+    public function showsinglemovie(Ticket $id)
     {
         //return the view 
+        
         //
-        $oneTicket = Ticket::find($ticket->id);
+        // $tickets = Ticket::all();
+        $ticket = Ticket::find($id);
         // dd($oneProduct);
-        return view('moviesingle', compact('oneTicket'));
+        // dd($ticket);
+        return view('moviesingle', compact("ticket"));
     }
 }

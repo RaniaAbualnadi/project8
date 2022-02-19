@@ -113,4 +113,7 @@ class TicketController extends Controller
         $ticket->delete();
         return redirect()->back();
     }
+
+
+    
 }
